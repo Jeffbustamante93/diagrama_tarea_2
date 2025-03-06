@@ -177,14 +177,35 @@
         }
 		
 		
-		.footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            font-size: 14px;
-        }
+	.footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Transparencia sutil */
+    backdrop-filter: blur(10px); /* Efecto elegante */
+    color: #f3f3f3;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Segoe UI", sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer a {
+    color: #0078D4; /* Azul de Microsoft */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
@@ -260,9 +281,9 @@
     <div id="initialModal" class="modal" style="display: block;">
         <div class="modal-content">
             <span class="close" onclick="closeModal('initialModal')">&times;</span>
-            <h2>Bienvenido al Diagrama de Ishikawa</h2>
-            <p>Este índice representa un diagrama de Ishikawa (o diagrama de espina de pescado) que analiza las causas y efectos de la falta de tiempo familiar. Cada ítem es dinámico: al hacer clic en las causas o efectos, se abrirá un modal con información detallada.</p>
-            <p>¡Explora y descubre cómo mejorar la convivencia familiar!</p>
+            <h2>Bienvenido al Diagrama de Ishikawa Tarea 2</h2>
+            <p>Este diagrama de Ishikawa (o diagrama de espina de pescado) analiza las causas y efectos de la falta de tiempo familiar. Cada ítem es dinámico: al hacer clic en las causas o efectos.</p>
+            <p>¡Exploremos cómo mejorar la convivencia familiar!</p>
         </div>
     </div>
 
