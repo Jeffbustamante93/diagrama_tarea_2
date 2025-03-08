@@ -3,196 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Ishikawa - Familia López</title>
+    <title>Diagrama de Ishikawa - Paso 4</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f9f9f9;
-            padding: 20px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
 
-        .image-container {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 2px;
-        }
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2px;
+}
 
-        .image-container img {
-            max-width: 300px;
-            height: auto;
-        }
+.image-container img {
+    max-width: 300px;
+    height: auto;
+}
 
-        .fishbone-container {
-            position: relative;
-            width: 90%;
-            top: 90px;
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
+.fishbone-container {
+    position: relative;
+    width: 90%;
+    top: 90px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
-        .spine {
-            width: 6px;
-            height: 400px;
-            background-color: #333;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+.spine {
+    width: 6px;
+    height: 400px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .bone {
-            display: flex;
-            align-items: center;
-            width: 70%;  
-            margin: 20px 0;
-        }
+.bone {
+    display: flex;
+    align-items: center;
+    width: 70%;  
+    margin: 20px 0;
+}
 
-        .cause, .effect {
-            width: 45%;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.cause, .effect {
+    width: 45%;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para todos los efectos */
+    border: 2px solid transparent; /* Borde transparente por defecto */
+}
 
-        .cause {
-            background: #bbdefb;
-            text-align: right;
-            padding-right: 30px;
-        }
+.cause {
+    background: #bbdefb;
+    text-align: right;
+    padding-right: 30px;
+	
+}
 
-        .effect {
-            background: #ffcccb;
-            text-align: left;
-            padding-left: 20px;
-        }
+.effect {
+    background: #ffcccb;
+    text-align: left;
+    padding-left: 20px;
+}
 
-        .arrow {
-            font-size: 2em;
-            font-weight: bold;
-            margin: 0 10px;
-            color: #333;
-            display: inline-block;
-            transform: scaleX(2);
-        }
+/* Efecto de iluminación y borde al hacer hover */
+.cause:hover, .effect:hover {
+    border: 2px solid #0073e6; /* Borde azul al hacer hover */
+    box-shadow: 0 0 15px rgba(0, 115, 230, 0.6); /* Sombra azul para iluminar */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+}
 
-        .head {
-            width: 100px;
-            height: 100px;
-            background-color: #d32f2f;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 100px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            position: absolute;
-            top: -100px;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+.arrow {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 10px;
+    color: #333;
+    display: inline-block;
+    transform: scaleX(2);
+}
 
-        h2 {
-            margin-top: 100px;
-            background-color: #f8f9fa;
-            border: 2px solid #333;
-            border-radius: 10px;
-            padding: 10px 20px;
-            text-align: center;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-        }
+.head {
+    width: 100px;
+    height: 100px;
+    background-color: #d32f2f;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: -100px;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .fishbone-container2 {
-            position: relative;
-            width: 90%;
-            top: 10px;
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
+h2 {
+    margin-top: 100px;
+    background-color: #f8f9fa;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
 
-        .spine2 {
-            width: 6px;
-            height: 280px;
-            background-color: #333;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+.fishbone-container2 {
+    position: relative;
+    width: 90%;
+    top: 10px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
-        .image-container2 {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 18px;
-        }
+.spine2 {
+    width: 6px;
+    height: 280px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .image-container2 img {
-            max-width: 300px;
-            height: auto;
-        }
+.image-container2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 18px;
+}
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding-top: 60px;
-        }
+.image-container2 img {
+    max-width: 300px;
+    height: auto;
+}
 
-        .modal-content {
-            background-color: #fff;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-		
-		
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .footer {
     margin-top: 50px;
     padding: 20px;
-    background: #2c2c2c; /* Un gris más suave para un contraste menos agresivo */
-    color: #e0e0e0; /* Blanco ligeramente apagado para suavidad */
+    background-color: #333;
+    color: white;
     text-align: center;
     font-size: 14px;
-    font-family: "Segoe UI", sans-serif;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil para separación */
+}
+		
+		
+		
+		/* Estilos para el modal */
+.modal-info {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilos para el contenido del modal */
+.modal-info-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%; /* Ancho del modal */
+    max-width: 600px; /* Ancho máximo */
+    max-height: 80vh; /* Altura máxima */
+    overflow-y: auto; /* Scroll vertical */
+    position: relative;
+}
+
+/* Estilos para el botón de cerrar */
+.modal-info-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-info-close:hover,
+.modal-info-close:focus {
+    color: black;
+    text-decoration: none;
+}
+		
+	
+	
+/* Contenedor del botón */
+.sustentacion-container {
+    text-align: center; /* Centra el contenido horizontalmente */
+    margin: 0; /* Elimina el margen */
+}
+
+/* Estilos del botón con efectos */
+.cause1 {
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    padding: 10px; /* Espaciado interno */
+    border: 3px solid; /* Borde más grueso para el efecto */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco inicial */
+    display: inline-block; /* Permite centrarlo con text-align */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    position: relative; /* Necesario para el efecto de borde */
+    overflow: hidden; /* Oculta el desbordamiento del borde animado */
+}
+
+/* Animación del borde */
+@keyframes borderCycle {
+    0% {
+        border-color: #00f; /* Azul */
+    }
+    25% {
+        border-color: #0ff; /* Cian */
+    }
+    50% {
+        border-color: #f0f; /* Magenta */
+    }
+    75% {
+        border-color: #ff0; /* Amarillo */
+    }
+    100% {
+        border-color: #00f; /* Azul */
+    }
+}
+
+/* Animación del fondo */
+@keyframes backgroundBlink {
+    0%, 100% {
+        background-color: #fff; /* Blanco */
+    }
+    50% {
+        background-color: #ffcc00; /* Amarillo brillante */
+    }
+}
+
+/* Aplicar animaciones al botón */
+.cause1 {
+    animation: borderCycle 4s infinite linear, /* Ciclo de colores en el borde */
+               backgroundBlink 1s infinite ease-in-out; /* Parpadeo del fondo */
+}
+
+/* Efecto adicional para el borde */
+.cause1::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 3px solid transparent;
+    border-radius: 8px; /* Un poco más grande para el efecto */
+    animation: borderCycle 4s infinite linear; /* Misma animación para el pseudo-elemento */
+    z-index: -1; /* Detrás del botón */
 }
 
 
+
+
+
+
+		
     </style>
 </head>
 <body>
     <h1>Diagrama de Ishikawa - Falta de Tiempo Familiar</h1>
+
+
+	
 
     <div class="image-container">
         <img src="assets/img02.png" alt="Imagen Superior">
@@ -201,7 +332,7 @@
     <div class="fishbone-container">
         <div class="spine"></div>
 
-        <div class="bone">
+       <div class="bone">
             <div class="cause" onclick="openModal('modal1')">🏢 Exceso de trabajo de los padres</div>
             <div class="arrow">➡</div>
             <div class="effect" onclick="openModal('modalEffect1')">Falta de presencia en casa</div>
@@ -256,273 +387,273 @@
         </div>
     </div>
 
-    <div class="image-container2">
+	 <div class="image-container2">
         <img src="assets/img01.png" alt="Imagen Inferior">
     </div>
+
 
     <!-- Modal Inicial -->
     <div id="initialModal" class="modal" style="display: block;">
         <div class="modal-content">
             <span class="close" onclick="closeModal('initialModal')">&times;</span>
-            <h2>Bienvenido al Diagrama de Ishikawa Tarea 2</h2>
-            <p>Este diagrama de Ishikawa (o diagrama de espina de pescado) analiza las causas y efectos de la falta de tiempo familiar. Cada ítem es dinámico: al hacer clic en las causas o efectos.</p>
-            <p>¡Exploremos cómo mejorar la convivencia familiar!</p>
+            <h2>Bienvenido al Diagrama de Ishikawa</h2>
+            <p>Este diagrama analiza las causas y efectos de la falta de tiempo familiar en la familia López, basado en los referentes bibliográficos proporcionados. Cada ítem es dinámico: al hacer clic en las causas o efectos, se abrirá un modal con información detallada.</p>
+            <p>¡Explora y descubre cómo mejorar la convivencia familiar!</p>
         </div>
     </div>
 
-   <!-- Modales Mejorados -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>
-        <h2>🏢 Exceso de trabajo de los padres</h2>
-        <p>El exceso de trabajo puede afectar la dinámica familiar, reduciendo la calidad del tiempo juntos.</p>
-        <ul>
-            <li>Menos interacción con los hijos, lo que puede generar distanciamiento.</li>
-            <li>Aumento del estrés y agotamiento parental.</li>
-            <li>Riesgo de conflictos familiares por falta de comunicación.</li>
-            <li>Impacto en el desarrollo emocional de los niños.</li>
-        </ul>
+    <!-- Modales de Causas -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>🏢 Exceso de trabajo de los padres</h2>
+            <p>Según <strong>Agudelo, Grajales y Ramírez López (2023)</strong>, el exceso de trabajo genera una desconexión emocional entre los miembros de la familia, afectando la estabilidad psicológica y social. Los padres tienen largas jornadas laborales que les impiden dedicar tiempo suficiente a la crianza y educación de sus hijos.</p>
+            <ul>
+                <li>Menos interacción con los hijos, lo que puede generar distanciamiento.</li>
+                <li>Aumento del estrés y agotamiento parental.</li>
+                <li>Riesgo de conflictos familiares por falta de comunicación.</li>
+                <li>Impacto en el desarrollo emocional de los niños.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>📅 Falta de planificación del tiempo</h2>
+            <p>Como mencionan <strong>Cudris-Torres et al. (2020)</strong>, la falta de planificación del tiempo familiar genera estrés y desorganización, lo que dificulta la convivencia y el equilibrio entre responsabilidades laborales y personales.</p>
+            <ul>
+                <li>Dificultad para equilibrar trabajo, hogar y vida personal.</li>
+                <li>Reducción del tiempo de descanso y recreación.</li>
+                <li>Posibilidad de desatender necesidades emocionales de la familia.</li>
+                <li>Generación de hábitos poco saludables en los niños.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>📱 Uso excesivo de dispositivos</h2>
+            <p>Según <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong>, el uso excesivo de dispositivos electrónicos reduce la interacción familiar y limita la comunicación cara a cara, generando aislamiento emocional.</p>
+            <ul>
+                <li>Distracción constante con redes sociales y videojuegos.</li>
+                <li>Disminución de la comunicación y conexión emocional.</li>
+                <li>Impacto negativo en la concentración y rendimiento escolar.</li>
+                <li>Alteración de los hábitos de sueño en niños y adultos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <h2>🎭 Actividades extracurriculares saturadas</h2>
+            <p>Como señalan <strong>Agudelo, Grajales y Ramírez López (2023)</strong>, la sobrecarga de actividades extracurriculares reduce el tiempo libre para compartir en familia, generando estrés y fatiga en los niños.</p>
+            <ul>
+                <li>Falta de tiempo libre para compartir en familia.</li>
+                <li>Posible sobrecarga de estrés en los niños.</li>
+                <li>Menos oportunidades para desarrollar vínculos emocionales.</li>
+                <li>Desequilibrio entre aprendizaje, diversión y descanso.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <h2>🗣️ Escasa comunicación emocional</h2>
+            <p>Según <strong>Cudris-Torres et al. (2020)</strong>, la falta de comunicación emocional genera conflictos y distanciamiento en la familia, afectando la autoestima y el bienestar emocional de los niños.</p>
+            <ul>
+                <li>Dificultad para expresar emociones y resolver problemas.</li>
+                <li>Mayor posibilidad de malentendidos y discusiones.</li>
+                <li>Impacto negativo en la autoestima de los niños.</li>
+                <li>Debilitamiento del vínculo familiar con el tiempo.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modales de Efectos -->
+    <div id="modalEffect1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEffect1')">&times;</span>
+            <h2>🏠 Desequilibrio entre trabajo y familia</h2>
+            <p>Como mencionan <strong>Agudelo, Grajales y Ramírez López (2023)</strong>, el desequilibrio entre trabajo y familia genera una desconexión emocional, afectando la estabilidad psicológica y social de los miembros.</p>
+            <ul>
+                <li>Menos momentos compartidos y reducción del vínculo afectivo.</li>
+                <li>Mayor cansancio y menor disponibilidad emocional de los padres.</li>
+                <li>Desbalance entre la vida laboral y personal, generando tensiones.</li>
+                <li>Posible sensación de abandono en los hijos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modalEffect2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEffect2')">&times;</span>
+            <h2>🔄 Falta de estructura y armonía</h2>
+            <p>Según <strong>Cudris-Torres et al. (2020)</strong>, la falta de estructura en la rutina familiar genera caos y afecta la convivencia, debilitando el vínculo afectivo entre sus integrantes.</p>
+            <ul>
+                <li>Problemas para coordinar actividades y responsabilidades.</li>
+                <li>Mayor estrés y sensación de sobrecarga en el hogar.</li>
+                <li>Menos tiempo para compartir y fortalecer vínculos familiares.</li>
+                <li>Impacto en el bienestar emocional de padres e hijos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modalEffect3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEffect3')">&times;</span>
+            <h2>📴 Aislamiento y dependencia digital</h2>
+            <p>Como señalan <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong>, el uso excesivo de dispositivos genera aislamiento emocional y reduce la interacción familiar, afectando la dinámica del hogar.</p>
+            <ul>
+                <li>Pérdida de momentos importantes de convivencia y diálogo.</li>
+                <li>Mayor dependencia de la tecnología para el entretenimiento.</li>
+                <li>Disminución del interés por actividades fuera de las pantallas.</li>
+                <li>Posible impacto en la salud mental y emocional.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modalEffect4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEffect4')">&times;</span>
+            <h2>⚖️ Agotamiento y falta de equilibrio</h2>
+            <p>Según <strong>Agudelo, Grajales y Ramírez López (2023)</strong>, la sobrecarga de actividades extracurriculares genera fatiga y afecta el bienestar emocional de los niños, reduciendo su capacidad de disfrute.</p>
+            <ul>
+                <li>Disminución del tiempo para el descanso y la recreación.</li>
+                <li>Mayor riesgo de ansiedad y agotamiento físico y mental.</li>
+                <li>Reducción de la espontaneidad y disfrute en familia.</li>
+                <li>Posible desmotivación y pérdida de interés en actividades.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modalEffect5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEffect5')">&times;</span>
+            <h2>🔇 Aislamiento emocional</h2>
+            <p>Como mencionan <strong>Cudris-Torres et al. (2020)</strong>, la falta de comunicación genera barreras emocionales, afectando la autoestima y el sentido de pertenencia en la familia.</p>
+            <ul>
+                <li>Mayor sensación de soledad y desconexión afectiva.</li>
+                <li>Falta de apoyo emocional en momentos difíciles.</li>
+                <li>Mayor probabilidad de conflictos sin resolver.</li>
+                <li>Debilitamiento del sentido de pertenencia en la familia.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modales de Soluciones -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <h2>📅 Rutina familiar estructurada</h2>
+            <p>Según <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong>, establecer una rutina familiar estructurada mejora la organización del tiempo y reduce el estrés, permitiendo momentos de calidad en familia.</p>
+            <ul>
+                <li>Facilita la planificación de actividades diarias.</li>
+                <li>Fomenta hábitos saludables y disciplina.</li>
+                <li>Mejora el equilibrio entre responsabilidades y tiempo de ocio.</li>
+                <li>Proporciona estabilidad y seguridad emocional en los niños.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal7')">&times;</span>
+            <h2>❤️ Tiempo de calidad sin pantallas</h2>
+            <p>Como señalan <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong>, reducir el uso de dispositivos fomenta la interacción cara a cara y fortalece el vínculo familiar.</p>
+            <ul>
+                <li>Mayor interacción cara a cara y expresión emocional.</li>
+                <li>Fomento de la creatividad con juegos y conversaciones.</li>
+                <li>Reducción del estrés digital y la dependencia tecnológica.</li>
+                <li>Mejora en el desarrollo cognitivo y social de los niños.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal8')">&times;</span>
+            <h2>🗣️ Espacios de diálogo familiar</h2>
+            <p>Según <strong>Cudris-Torres et al. (2020)</strong>, establecer espacios de diálogo familiar fortalece la confianza y el bienestar emocional, mejorando la resolución de conflictos.</p>
+            <ul>
+                <li>Favorecen la resolución de conflictos de manera saludable.</li>
+                <li>Crean un ambiente de apoyo emocional y comprensión.</li>
+                <li>Refuerzan la autoestima y seguridad en los niños.</li>
+                <li>Permiten conocer mejor las preocupaciones y logros de cada miembro.</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+<!-- Botón y modal de sustentación -->
+<div class="sustentacion-container">
+    <div class="cause1" onclick="openModal('modalSustentacion')">
+        📚 Sustentación de la Información
     </div>
 </div>
 
-<div id="modalEffect1" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect1')">&times;</span>
-        <h2>🏠 Desequilibrio entre trabajo y familia</h2>
-        <p>Cuando el trabajo absorbe demasiado tiempo, la armonía familiar puede verse afectada.</p>
+<!-- Modal -->
+<div id="modalSustentacion" class="modal-info">
+    <div class="modal-info-content">
+        <span class="modal-info-close" onclick="closeModal('modalSustentacion')">&times;</span>
+        <h2>Referencias y análisis</h2>
+        <p>El análisis y la estructura del diagrama de Ishikawa presentado se basan en los siguientes referentes bibliográficos:</p>
         <ul>
-            <li>Menos momentos compartidos y reducción del vínculo afectivo.</li>
-            <li>Mayor cansancio y menor disponibilidad emocional de los padres.</li>
-            <li>Desbalance entre la vida laboral y personal, generando tensiones.</li>
-            <li>Posible sensación de abandono en los hijos.</li>
+            <li>
+                <strong>Agudelo, Grajales y Ramírez López (2023)</strong>: 
+                En su artículo "La familia hoy: una lectura a través de la imagen digital", los autores destacan cómo la falta de tiempo de calidad en familia genera desconexión emocional y afecta la estabilidad psicológica y social de sus miembros. Este trabajo fue fundamental para identificar las causas relacionadas con el exceso de trabajo y la falta de planificación del tiempo.
+            </li>
+            <li>
+                <strong>Cudris-Torres et al. (2020)</strong>: 
+                En "Familia, cultura y sociedad: factores determinantes del desarrollo humano", se analiza cómo la falta de estructura en la rutina familiar genera caos y afecta la convivencia. Este referente fue clave para entender los efectos de la desorganización y la falta de comunicación emocional.
+            </li>
+            <li>
+                <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong>: 
+                En su libro "La familia: ¿Es una escuela de amistad?", los autores abordan el impacto del uso excesivo de dispositivos electrónicos en la interacción familiar. Este trabajo fue esencial para analizar cómo la tecnología reduce la comunicación cara a cara y genera aislamiento emocional.
+            </li>
         </ul>
+        <p><strong>Análisis y Estructura del Diagrama:</strong></p>
+        <p>
+            El diagrama de Ishikawa se estructuró en dos secciones principales: <strong>causas</strong> y <strong>efectos</strong>. Las causas identificadas (exceso de trabajo, falta de planificación, uso excesivo de dispositivos, actividades extracurriculares saturadas y escasa comunicación emocional) se basaron en los referentes mencionados. Los efectos (falta de presencia en casa, estrés, reducción de la interacción familiar, falta de tiempo libre y conflictos familiares) se derivaron de un análisis detallado de las dinámicas familiares descritas en las fuentes.
+        </p>
+        <p>
+            Las soluciones propuestas (rutina familiar estructurada, tiempo de calidad sin pantallas y espacios de diálogo familiar) se fundamentan en las recomendaciones de los autores para fortalecer el vínculo familiar y mejorar la convivencia.
+        </p>
     </div>
 </div>
-
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <h2>🕒 Falta de planificación del tiempo</h2>
-        <p>Una mala gestión del tiempo familiar puede generar estrés y desorganización.</p>
-        <ul>
-            <li>Dificultad para equilibrar trabajo, hogar y vida personal.</li>
-            <li>Reducción del tiempo de descanso y recreación.</li>
-            <li>Posibilidad de desatender necesidades emocionales de la familia.</li>
-            <li>Generación de hábitos poco saludables en los niños.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect2')">&times;</span>
-        <h2>🔄 Falta de estructura y armonía</h2>
-        <p>La desorganización en la rutina familiar puede generar caos y afectar la convivencia.</p>
-        <ul>
-            <li>Problemas para coordinar actividades y responsabilidades.</li>
-            <li>Mayor estrés y sensación de sobrecarga en el hogar.</li>
-            <li>Menos tiempo para compartir y fortalecer vínculos familiares.</li>
-            <li>Impacto en el bienestar emocional de padres e hijos.</li>
-        </ul>
-    </div>
-</div>
-
-
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <h2>📱 Uso excesivo de dispositivos</h2>
-        <p>El abuso de la tecnología puede disminuir la interacción y el vínculo familiar.</p>
-        <ul>
-            <li>Distracción constante con redes sociales y videojuegos.</li>
-            <li>Disminución de la comunicación y conexión emocional.</li>
-            <li>Impacto negativo en la concentración y rendimiento escolar.</li>
-            <li>Alteración de los hábitos de sueño en niños y adultos.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect3" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect3')">&times;</span>
-        <h2>📴 Aislamiento y dependencia digital</h2>
-        <p>El uso excesivo de dispositivos puede generar aislamiento y afectar la dinámica familiar.</p>
-        <ul>
-            <li>Pérdida de momentos importantes de convivencia y diálogo.</li>
-            <li>Mayor dependencia de la tecnología para el entretenimiento.</li>
-            <li>Disminución del interés por actividades fuera de las pantallas.</li>
-            <li>Posible impacto en la salud mental y emocional.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modal4" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
-        <h2>📚 Actividades extracurriculares saturadas</h2>
-        <p>Un exceso de actividades puede afectar la convivencia familiar.</p>
-        <ul>
-            <li>Falta de tiempo libre para compartir en familia.</li>
-            <li>Posible sobrecarga de estrés en los niños.</li>
-            <li>Menos oportunidades para desarrollar vínculos emocionales.</li>
-            <li>Desequilibrio entre aprendizaje, diversión y descanso.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect4" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect4')">&times;</span>
-        <h2>⚖️ Agotamiento y falta de equilibrio</h2>
-        <p>Una agenda sobrecargada puede generar fatiga y afectar el bienestar emocional.</p>
-        <ul>
-            <li>Disminución del tiempo para el descanso y la recreación.</li>
-            <li>Mayor riesgo de ansiedad y agotamiento físico y mental.</li>
-            <li>Reducción de la espontaneidad y disfrute en familia.</li>
-            <li>Posible desmotivación y pérdida de interés en actividades.</li>
-        </ul>
-    </div>
-</div>
-
-
-<div id="modal5" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal5')">&times;</span>
-        <h2>💬 Escasa comunicación emocional</h2>
-        <p>La falta de comunicación puede generar conflictos y distanciamiento en la familia.</p>
-        <ul>
-            <li>Dificultad para expresar emociones y resolver problemas.</li>
-            <li>Mayor posibilidad de malentendidos y discusiones.</li>
-            <li>Impacto negativo en la autoestima de los niños.</li>
-            <li>Debilitamiento del vínculo familiar con el tiempo.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect5" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect5')">&times;</span>
-        <h2>🔇 Aislamiento emocional</h2>
-        <p>La falta de comunicación puede generar barreras emocionales entre los miembros de la familia.</p>
-        <ul>
-            <li>Mayor sensación de soledad y desconexión afectiva.</li>
-            <li>Falta de apoyo emocional en momentos difíciles.</li>
-            <li>Mayor probabilidad de conflictos sin resolver.</li>
-            <li>Debilitamiento del sentido de pertenencia en la familia.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modal6" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal6')">&times;</span>
-        <h2>📅 Rutina familiar estructurada</h2>
-        <p>Una rutina bien organizada puede mejorar la convivencia y reducir el estrés.</p>
-        <ul>
-            <li>Facilita la planificación de actividades diarias.</li>
-            <li>Fomenta hábitos saludables y disciplina.</li>
-            <li>Mejora el equilibrio entre responsabilidades y tiempo de ocio.</li>
-            <li>Proporciona estabilidad y seguridad emocional en los niños.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect6" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect6')">&times;</span>
-        <h2>⏳ Falta de estructura y caos familiar</h2>
-        <p>La ausencia de una rutina clara puede generar estrés y desorganización en la familia.</p>
-        <ul>
-            <li>Dificultad para coordinar horarios y actividades.</li>
-            <li>Falta de hábitos saludables y disciplina.</li>
-            <li>Mayor sensación de incertidumbre y ansiedad en los niños.</li>
-            <li>Desbalance entre responsabilidades y tiempo de ocio.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modal7" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal7')">&times;</span>
-        <h2>👨‍👩‍👧‍👦 Tiempo de calidad sin pantallas</h2>
-        <p>Reducir el uso de dispositivos fomenta un mejor vínculo familiar.</p>
-        <ul>
-            <li>Mayor interacción cara a cara y expresión emocional.</li>
-            <li>Fomento de la creatividad con juegos y conversaciones.</li>
-            <li>Reducción del estrés digital y la dependencia tecnológica.</li>
-            <li>Mejora en el desarrollo cognitivo y social de los niños.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect7" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect7')">&times;</span>
-        <h2>📵 Aislamiento y desconexión familiar</h2>
-        <p>El uso excesivo de pantallas puede afectar la convivencia y la comunicación en la familia.</p>
-        <ul>
-            <li>Disminuye la interacción cara a cara y la conexión emocional.</li>
-            <li>Puede generar dependencia tecnológica y adicción digital.</li>
-            <li>Reduce la capacidad de atención y el interés por actividades familiares.</li>
-            <li>Puede afectar el desarrollo social y emocional de los niños.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modal8" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal8')">&times;</span>
-        <h2>🗣️ Espacios de diálogo familiar</h2>
-        <p>Conversaciones regulares fortalecen la confianza y el bienestar familiar.</p>
-        <ul>
-            <li>Favorecen la resolución de conflictos de manera saludable.</li>
-            <li>Crean un ambiente de apoyo emocional y comprensión.</li>
-            <li>Refuerzan la autoestima y seguridad en los niños.</li>
-            <li>Permiten conocer mejor las preocupaciones y logros de cada miembro.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="modalEffect8" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalEffect8')">&times;</span>
-        <h2>❌ Desorganización y falta de control</h2>
-        <p>La ausencia de espacios de diálogo puede generar caos y distanciamiento en la familia.</p>
-        <ul>
-            <li>Los conflictos pueden acumularse sin una vía efectiva para resolverlos.</li>
-            <li>Se crea un ambiente de incomunicación y malentendidos frecuentes.</li>
-            <li>Los niños pueden experimentar inseguridad y baja autoestima.</li>
-            <li>Los miembros de la familia pueden sentirse poco valorados o ignorados.</li>
-        </ul>
-    </div>
-</div>
-
 
 
 <div class="footer">
         <p>TAREA 2 - PROYECTO DE VIDA</p>
-        <p>Estudiante UNAD - Jeffrey Bustamante</p>
+        <p>Jeffrey Duarte - Estudiante UNAD</p>
     </div>
 
 
-
-
-
-
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-        }
+          function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
 
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal') || event.target.classList.contains('modal-info')) {
+            event.target.style.display = "none";
         }
+    }
+		
+		
+			
+		
+
     </script>
 </body>
 </html>
